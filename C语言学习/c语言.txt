@@ -1,0 +1,19 @@
+动态存储分配
+
+#include<stdlib.h>
+
+void *malloc(size_t size);
+该函数用于申请分配size个字节的存储区快
+新分配的区块未初始化的，其值是不确定的
+如果分配成功，则返回这个区块起始位置的指针，
+失败则返回NULL
+free(ptr);
+void *calloc(int n,size_t size);
+
+void *realloc(void*ptr,size_t size);
+
+
+标识符
+ (1)标识符由字母、数字和下划线组成
+（2）标识符的第一位必须是字母或者下划线，不能是数字
+（3）大部分的编程语言都区分大小写，但VB不是

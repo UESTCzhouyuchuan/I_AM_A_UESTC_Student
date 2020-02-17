@@ -1,0 +1,17 @@
+#include "stdio.h"
+int fun(int year){
+    if((year%4==0&&year%100!=0)||year%400==0) return 1;
+    return 0;
+} 
+\&|
+int main()
+{
+    int i,sum=0;
+    for(i=2001;i<=2999;i++)
+        if(fun(i)){
+            printf("%d leap=1\n",i);
+            sum++;
+        }
+        else printf("%d leap=0\n",i);    
+    printf("There are %d leapyears!!\n",sum);       
+}

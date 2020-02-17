@@ -1,0 +1,43 @@
+第4章：
+1、创建一个类，它有一个接受一个String参数的构造器。在构造阶段，打印该参数。创建一个该类的对象引用数组，并通过以下两种方式对该数组初始化：1、构造函数，2、创建对象赋值给该引用数组。
+2、以学生类为例，基本成员包括：学号、姓名、性别、年龄、爱好，其中爱好为枚举类型，为Football,Basketball,Dancing,Music的集合。
+试在定义学生类基础上实现构造函数的过载，并实现不访问学生对象具体成员，用System.out.println()方法对学生对象的直接字符串输出显示功能。
+3、以下程序输出结果是什么？试解析原因。去掉注释语句后，输出结果是什么？试解析原因。
+class Cups{
+    static Cup cup1;
+    static Cup cup2;
+    static {
+        cup1=new Cup(1);
+        cup2=new Cup(2);
+    }
+    Cups(){
+        System.out.println("Cups()");
+    }
+}
+
+class Cup{
+    Cup(int marker){
+        System.out.println("Cup("+marker+")");
+    }
+    void f(int marker){
+        System.out.println("f("+marker+")");
+    }
+}
+
+public class ExplicitStatic{
+    public static void main(String[] args) {
+        System.out.println("Inside main()");
+        Cups.cup1.f(99);
+    }
+    //static Cups cup1 = new Cups();
+    //static Cups cup2 = new Cups();
+}
+4、P98-4、10
+第5章：
+1、P112-5、7、8
+2、创建一个超类，它仅有一个非默认的构造器；再创建一个子类，它带有默认构造器和非默认构造器。在子类的构造器中调用超类的构造器。
+3、创建一个抽象学生类，其中具有学生信息及print方法，创建学生类的子类分别为研究生类和本科生类，其中覆盖超类的print方法，通过超类引用实现多态。
+第6章：
+1、P129-1、2
+2、P130-5、6
+3、以学生对象为基本元素，在P126-例6.3和P127-例6.4基础上，实现完整的先进先出队列代码。

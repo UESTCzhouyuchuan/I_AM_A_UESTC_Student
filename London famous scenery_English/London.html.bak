@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="周玉川">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="London famous scenery">
+  <title>places of interest</title>
+ </head>
+ <style>
+ span{			/*.span使用时class="span"*/
+	color: black;/*颜色为黑色*/
+	font-size:30px;
+	
+ }
+ div
+ {
+ width:100%;
+ }
+ </style>
+ <body >
+ <h1 style="text-align:center;"> 
+ London Scenery !
+ </h1>
+ <h1 style="color:black;">First Place</h1>
+  <div style="background-image:url('background2.jpg');">
+  <p style="text-align: center;"><img src="TowerBridge1.jpg"width="670"height="444" alt="error" title="Tower Bridge"/><br />
+  <span >Tower Bridge Night<br />
+  <img src="TowerBridge2.jpg"width="670"height="444" alt="error" title="Tower Bridge"/><br />
+  <span style="color:#cc0000">Tower Bridge Evening</span><br />
+  <img src="TowerBridge3.jpg"width="670"height="444" alt="error" title="Tower Bridge"/><br />
+  <span style="color:#ff66ff;">Tower Bridge Morning</span>
+  </p>
+  <p style="color:black;font-size:25px;text-align: center;">As one of the landmark buildings of London,<br/> Tower Bridge is an opening bridge across the Thames,<br/>named for being near the Tower of London</p>
+  </div>
+ </body>
+ <body>
+ <br />
+ <h1>Second Place</h1>
+ <div style="background-image:url('background1.jpg');">
+	<p style="text-align: center;"><img src="Toweroflondon.jpg" width="670"height="444" alt="error" title="Tower Of London"/><br />
+	<span style="color:#ff00ff;">Tower Of Bridge</span><br/></p>
+	<p style="color:black;font-size:25px;text-align: center;">It is a symbol palace, fortress, located on the Thames River. <br />James I was the last ruler to live in the palace. <br />In 1988, it was listed as a World Heritage Site.</p>
+
+ </div>
+ </body>
+ <body>
+  <h1>Third Place</h1>
+<div style="background-image:url('background5.jpg');background-opacity:0.4;">
+  <p style="text-align: center;"><img src="Sherlock1.jpg"width="670"height="444" alt="error" title="Sherlock door"/><br />
+  <span style="color:#009900;">SherlockHolmesMuseum</span><br />
+  <img src="Sherlock2.jpg"width="670"height="444" alt="error" title=""/><br />
+  <span style="color:#336600;">MuseumFrontDoor</span><br/>
+  <img src="Sherlock3.jpg"width="670"height="444" alt="error" title="SherlockHolems"/><br />
+  <span style="color:#333300">SherlockHolems</span><br />
+  <img src="Sherlock4.jpg"width="640"height="966" alt="error" title="SherlockHolems"/><br />
+  <span style="color:#660000">Sherlock</span>
+  </p>
+  <br />
+  <p style="color:black;font-size:25px;text-align: center;">The Sherlock Holems Museum is a popular private museum that <br />salutes Sir Conan fictional character Sherlock Helomes.<br/>
+  The museum, located in Baker Street,opened in 1990. The layout <br/>and furnishings of the museum are based on the plot mentioned in the novel,<br />adding to the authenticity of Holmes' old residence.</p>
+  </div>
+ </body>
+<body>
+<br />
+<div style="background-image:url('background4.jpg');">
+<p style="text-align: center;"><img src="Windsor.jpg"width="670"height="444" alt="error" title="Windsor Castle"/><br />
+<span style="color:black;">Windsor Castle</span><br/></p>
+<p style="text-align: center;"><img src="Windsor2.jpg"width="670"height="444" alt="error" title="Windsor Castle"/><br />
+<span style="color:black;">Windsor Castle</span><br/></p>
+<p style="color:balck;font-size:25px;text-align: center;">
+One of the Queen's official residences and the largest inhabited castle in the world.<br/> The current Queen often live here and perform various official<br/> and private activities. Whenever the queen is in the castle,<br/> the royal flag is raised. Windsor Castle is divided into the upper,<br/> middle and lower three districts, including banquet hall, doll house and<br/> other palace furnishings. The central district has a round tower surrounded by rose gardens,<br/> and the lower district has Gothic St.George's Church and so on.<br/>
+</p>
+</div>
+</body>
+<body>
+<div style="height:1000px;background-image:url('background6.jpg');">
+<p style="text-align: center"><span style="color:#ff3300;font-size:50px;yext-align: center;">THANKS!</span></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,5 @@
+C语言错误：expected declaration or statement at end of input  
+
+可能错误：
+1. 某一个函数或者变量没有在使用之前声明。
+2. 某个地方少了个括号。

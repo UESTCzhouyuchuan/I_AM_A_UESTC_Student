@@ -1,0 +1,53 @@
+Name:3D-Campus Positioning Software
+
+Audience:freshman 
+         
+         Campus tourists
+
+         every individual who is not similar to campus sites
+
+Functions:have the capability to find any places in campus 
+
+          based on network-tech,
+          
+          small range navigation to teaching buildings,
+          
+          hospital , shops ,sanitary and so on;
+
+          As a class assistance tool:
+          
+          reveal club activities,major course,and some useful events
+          reminde students of their activities and turn their cell phone to slient.
+          For tourist
+          
+          recommend feature spots and some shops,
+          feedback people with their need
+          book food,drinking,and so on;
+
+
+
+Advantage:Pretty cool,
+
+          convenient and never get lost again
+
+          have better comprehension of constructions arroud you
+
+Estimate prospect: every college freshman need it eagerly 
+
+
+Income and profit: negotiate cooperation with enterprises,
+
+                   display their advertising,and collect fees,
+
+                   help clubs do spreading
+
+                   
+
+Popularize: It can be downloaded by scan QR coder in school's prominent place
+
+
+
+
+
+ 
+

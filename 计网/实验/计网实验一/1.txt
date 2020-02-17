@@ -1,0 +1,28 @@
+Switch>enable
+Switch#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#vlan 10
+Switch(config-vlan)#exit
+Switch(config)#interface fastEthernet 0/3
+Switch(config-if)#switchport mode access
+Switch(config-if)#switchport access vlan 10
+Switch(config-if)#exit
+Switch(config)#
+Switch(config)#vlan 20
+Switch(config-vlan)#exit
+Switch(config)#interface fastEthernet 0/4
+Switch(config-if)#switchport access vlan 20
+Switch(config-if)#
+Switch(config-if)#exit
+Switch(config)#
+Switch(config)#interface fastEthernet 0/1
+Switch(config-if)#switchport mode trunk 
+Switch(config-if)#
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to down
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to up
+exit
+Switch(config)#interface fastEthernet 0/2
+Switch(config-if)#switchport mode trunk 
+Switch(config-if)#exit
+Switch(config)#

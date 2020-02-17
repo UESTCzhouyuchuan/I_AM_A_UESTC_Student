@@ -1,0 +1,184 @@
+00411490  push        ebp              //          
+00411491  mov        ebp,esp           //    形成自己的栈坐标
+00411493  sub         esp,0D8h         //
+00411499  push        ebx                  //---------------------------
+0041149A  push        esi                  //     寄存器保护
+0041149B  push        edi                  //    
+0041149C  lea         edi,[ebp+FFFFFF28h]   //------------------------- 
+004114A2  mov        ecx,36h              //
+004114A7  mov        eax,0CCCCCCCCh    // 初始化临时变量区
+004114AC  rep stos     dword ptr es:[edi]     //-------------------------
+004114AE  mov        esi,esp 
+004114B0  push        415AB0h 
+004114B5  call         dword ptr ds:[004182BCh]   // printf函数
+004114BB  add         esp,4                    // 堆栈平衡调整
+004114BE  cmp        esi,esp 
+004114C0  call         00411145                 //安全机制函数，逆向忽略
+004114C5  mov         esi,esp                  
+004114C7  push         4157ACh 
+004114CC  call         dword ptr ds:[004182BCh]  // printf函数
+004114D2  add         esp,4 
+004114D5  cmp        esi,esp                 //
+004114D7  call         00411145              //安全机制函数，逆向忽略
+004114DC  mov         dword ptr [ebp-8],39h 
+004114E3  mov         dword ptr [ebp-14h],3Ch 
+004114EA  mov         eax,dword ptr [ebp-8] 
+004114ED  cmp         eax,dword ptr [ebp-14h] 
+004114F0  jle           0041150B 
+004114F2  mov        esi,esp 
+004114F4  push        4162E4h 
+004114F9  call         dword ptr ds:[004182BCh]   // printf函数
+004114FF  add         esp,4 
+00411502  cmp         esi,esp 
+00411504  call         00411145              //安全机制函数，逆向忽略
+00411509  jmp         0041151B 
+0041150B  mov        eax,dword ptr [ebp-14h] 
+0041150E  push        eax  
+0041150F  mov        ecx,dword ptr [ebp-8] 
+00411512  push        ecx  
+00411513  call         00411168 
+00411518  add         esp,8 
+0041151B  mov        dword ptr [ebp-14h],32h 
+00411522  mov         eax,dword ptr [ebp-8] 
+00411525  cmp         eax,dword ptr [ebp-14h] 
+00411528  jle          0041153A 
+0041152A  mov        eax,dword ptr [ebp-14h] 
+0041152D  push        eax  
+0041152E  mov        ecx,dword ptr [ebp-8] 
+00411531  push        ecx  
+00411532  call         00411168 
+00411537  add         esp,8 
+0041153A  mov        esi,esp 
+0041153C  push        4162A0h 
+00411541  call         dword ptr ds:[004182BCh]    // printf函数
+00411547  add         esp,4 
+0041154A  cmp        esi,esp 
+0041154C  call        00411145               //安全机制函数，逆向忽略
+00411551  mov        esi,esp 
+00411553  push        415BC8h 
+00411558  call         dword ptr ds:[004182BCh]   // printf函数
+0041155E  add        esp,4 
+00411561  cmp        esi,esp 
+00411563  call        00411145              //安全机制函数，逆向忽略
+00411568  xor         eax,eax              // 程序状态返回置0
+0041156A  pop         edi                 //  return 0
+0041156B  pop         esi                 // 程序收尾返回
+0041156C  pop         ebx                //
+0041156D  add         esp,0D8h           //
+00411573  cmp         ebp,esp            //
+00411575  call         00411145           //安全机制函数，逆向忽略
+0041157A  mov        esp,ebp             //
+0041157C  pop         ebp  
+0041157D  ret 
+00411168  jmp         004113B0
+004113B0  push        ebp                // 
+004113B1  mov        ebp,esp             //  形成自己的栈坐标
+004113B3  sub         esp,0CCh            //-----------------------------
+004113B9  push        ebx                 //
+004113BA  push        esi                 //  寄存器保护
+004113BB  push        edi                 //----------------------------
+004113BC  lea          edi,[ebp+FFFFFF34h]  //
+004113C2  mov         ecx,33h             //
+004113C7  mov         eax,0CCCCCCCCh   //  初始化临时变量区
+004113CC  rep stos      dword ptr es:[edi]     //---------------------------
+004113CE  mov         eax,dword ptr [ebp+8] 
+004113D1  cmp         eax,dword ptr [ebp+0Ch] 
+004113D4  jl           004113E1 
+004113D6  mov         eax,dword ptr [ebp+8] 
+004113D9  sub          eax,dword ptr [ebp+0Ch] 
+004113DC  mov         dword ptr [ebp-8],eax 
+004113DF  jmp         004113EA 
+004113E1  mov         eax,dword ptr [ebp+0Ch] 
+004113E4  sub          eax,dword ptr [ebp+8] 
+004113E7  mov         dword ptr [ebp-8],eax 
+004113EA  mov         esi,esp 
+004113EC  mov         eax,dword ptr [ebp-8] 
+004113EF  push         eax  
+004113F0  push         41576Ch 
+004113F5  call          dword ptr ds:[004182BCh]  // printf函数 
+004113FB  add          esp,8 
+004113FE  cmp         esi,esp 
+00411400  call          00411145               //安全机制函数，逆向忽略
+00411405  mov         esi,esp 
+00411407  push        41575Ch 
+0041140C  call         dword ptr ds:[004182BCh]    // printf函数
+00411412  add          esp,4 
+00411415  cmp         esi,esp 
+00411417  call         00411145                 //安全机制函数，逆向忽略
+0041141C  mov        esi,esp 
+0041141E  push        415748h 
+00411423  call         dword ptr ds:[004182BCh]    // printf函数
+00411429  add         esp,4 
+0041142C  cmp        esi,esp 
+0041142E  call         00411145               // 安全机制函数，逆向忽略
+00411433  mov         esi,esp 
+00411435  push        415858h 
+0041143A  call         dword ptr ds:[004182BCh]    // printf函数
+00411440  add         esp,4 
+00411443  cmp         esi,esp 
+00411445  call         00411145               // 安全机制函数，逆向忽略
+0041144A  mov         eax,dword ptr [ebp-8]    // 返回值保存传递返回
+0041144D  pop         edi                   //
+0041144E  pop         esi                   //
+0041144F  pop         ebx                  //  程序收尾返回
+00411450  add         esp,0CCh             //
+00411456  cmp         ebp,esp              //
+00411458  call          00411145            // 安全机制函数，逆向忽略
+0041145D  mov         esp,ebp              //
+0041145F  pop         ebp                  //
+00411460  ret                               //
+内存数据区：
+0x00415740  00 00 00 00 00 00 00 00 74 68 65 20 61 62 69 6c  ........the abil
+0x00415750  69 74 79 20 6f 66 20 00 00 00 00 00 63 61 6e 20  ity of .....can 
+0x00415760  79 6f 75 20 68 61 76 65 20 00 00 00 74 68 65 69  you have ...thei
+0x00415770  72 20 73 75 6d 20 69 73 20 a3 ba 25 64 0a 00 00  r sum is ..%d...
+0x00415780  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+0x00415790  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+0x004157A0  00 00 00 00 00 00 00 00 00 00 00 00 70 72 6f 67  ............prog
+0x004157B0  72 61 6d 20 79 6f 75 20 61 72 65 20 61 6e 61 6c  ram you are anal
+0x004157C0  79 7a 69 6e 67 20 6e 6f 77 21 00 00 00 00 00 00  yzing now!......
+0x004157D0  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+0x00415840  72 00 63 00 5c 00 63 00 72 00 74 00 65 00 78 00  r.c.\.c.r.t.e.x.
+0x00415850  65 00 2e 00 63 00 00 00 72 65 76 65 72 73 65 20  e...c...reverse 
+0x00415860  61 6e 61 6c 79 73 69 73 00 00 00 00 00 00 00 00  analysis........
+0x00415870  5f 00 5f 00 6e 00 61 00 74 00 69 00 76 00 65 00  _._.n.a.t.i.v.e.
+0x00415B70  67 20 63 6f 6e 76 65 6e 74 69 6f 6e 20 77 69 74  g convention wit
+0x00415B80  68 20 61 20 66 75 6e 63 74 69 6f 6e 20 70 6f 69  h a function poi
+0x00415B90  6e 74 65 72 20 64 65 63 6c 61 72 65 64 20 77 69  nter declared wi
+0x00415BA0  74 68 20 61 20 64 69 66 66 65 72 65 6e 74 20 63  th a different c
+0x00415BB0  61 6c 6c 69 6e 67 20 63 6f 6e 76 65 6e 74 69 6f  alling conventio
+0x00415BC0  6e 2e 0a 0d 00 00 00 00 74 72 61 70 a3 ac 63 6f  n.......trap..co
+0x00415BD0  6e 67 72 61 74 75 6c 61 74 69 6f 6e 21 20 6e 6f  ngratulation! no
+0x00415BE0  77 20 69 73 20 74 68 65 20 65 6e 64 0a 00 00 00  w is the end....
+0x00415BF0  00 00 00 00 e8 5a 41 00 90 59 41 00 68 59 41 00  .....ZA..YA.hYA.
+0x00415C00  28 59 41 00 f4 58 41 00 d0 58 41 00 01 00 00 00  (YA..XA..XA.....
+0x00415C10  00 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00  ................
+0x00415C20  01 00 00 00 53 74 61 63 6b 20 61 72 6f 75 6e 64  ....Stack around
+0x00415C30  20 74 68 65 20 76 61 72 69 61 62 6c 65 20 27 00   the variable '.
+
+0x00416280  41 00 00 00 41 44 56 41 50 49 33 32 2e 44 4c 4c  A...ADVAPI32.DLL
+0x00416290  00 00 00 00 98 71 41 00 f0 71 41 00 00 00 00 00  .....qA..qA.....
+0x004162A0  74 68 69 73 20 69 73 20 74 72 75 65 20 65 6e 64  this is true end
+0x004162B0  21 20 62 75 74 20 79 6f 75 20 73 68 6f 75 6c 64  ! but you should
+0x004162C0  20 6e 6f 74 20 72 65 6c 61 78 20 79 6f 75 72 73   not relax yours
+0x004162D0  65 6c 66 21 21 21 20 42 65 20 63 61 72 65 66 75  elf!!! Be carefu
+0x004162E0  6c 20 00 00 68 65 6c 6c 6f a3 ac 64 6f 20 79 6f  l ..hello..do yo
+0x004162F0  75 20 68 61 76 65 20 67 65 74 20 74 68 65 20 72  u have get the r
+0x00416300  69 67 68 74 20 72 65 73 75 6c 74 3f 20 6e 6f 21  ight result? no!
+0x00416310  20 69 74 27 73 20 6e 6f 74 20 6f 76 65 72 0a 00   it's not over..
+0x00415A50  43 68 61 6e 67 69 6e 67 20 74 68 65 20 63 6f 64  Changing the cod
+0x00415A60  65 20 69 6e 20 74 68 69 73 20 77 61 79 20 77 69  e in this way wi
+0x00415A70  6c 6c 20 6e 6f 74 20 61 66 66 65 63 74 20 74 68  ll not affect th
+0x00415A80  65 20 71 75 61 6c 69 74 79 20 6f 66 20 74 68 65  e quality of the
+0x00415A90  20 72 65 73 75 6c 74 69 6e 67 20 6f 70 74 69 6d   resulting optim
+0x00415AA0  69 7a 65 64 20 63 6f 64 65 2e 0a 0d 00 00 00 00  ized code.......
+0x00415AB0  74 68 69 73 20 69 73 20 20 61 20 73 69 6d 70 6c  this is  a simpl
+0x00415AC0  65 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  e...............
+0x00415AD0  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+0x00415BA0  74 68 20 61 20 64 69 66 66 65 72 65 6e 74 20 63  th a different c
+0x00415BB0  61 6c 6c 69 6e 67 20 63 6f 6e 76 65 6e 74 69 6f  alling conventio
+0x00415BC0  6e 2e 0a 0d 00 00 00 00 74 72 61 70 a3 ac 63 6f  n.......trap..co
+0x00415BD0  6e 67 72 61 74 75 6c 61 74 69 6f 6e 21 20 6e 6f  ngratulation! no
+0x00415BE0  77 20 69 73 20 74 68 65 20 65 6e 64 0a 00 00 00  w is the end....
+0x00415BF0  00 00 00 00 e8 5a 41 00 90 59 41 00 68 59 41 00  .....ZA..YA.hYA.
+0x00415C00  28 59 41 00 f4 58 41 00 d0 58 41 00 01 00 00 00  (YA..XA..XA.....

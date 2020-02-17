@@ -1,0 +1,18 @@
+要访问命令行参数，main函数需要两个参数：
+int main(int argc,char*argv[])//argc 表示参数个数，包括命令本身,argv[]指向参数地址，argv[0]到argv[argc-1]结束，argv[argc]是一个空字符
+{
+}
+
+数组是储存相同数据元素的集合
+结构体struct：
+struct{int m1;int m2;int char m3[N];}s1,s2;结构中的成员按照生命的顺序存储；
+结构体表示新的范围，新的空间，同名不冲突
+初始化：按照声名顺序
+struct{int number;char name[N];int on-hand}part1={12,"sdffs",34};
+struct{
+float x,floaty}point={0,0};
+访问：part1.number,part1.on_hand,part1.name;
+可以赋值，自增运算，修改
+结构体之间可以相互赋值
+
+do,define,typedef,struct,在C语言中define不是关键字。define是编译器的预编译指令，是编译器实现的，不是C语言的内容。

@@ -1,0 +1,6 @@
+#include<stdio.h>
+#include<
+int main(void)
+{ 
+	return 0;
+}

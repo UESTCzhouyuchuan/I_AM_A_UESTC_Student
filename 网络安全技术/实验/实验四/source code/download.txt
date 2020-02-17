@@ -1,0 +1,18 @@
+#include <windows.h> 
+#include <stdio.h> 
+#pragma comment(lib,"Urlmon") 
+ void main() 
+{ 
+ HRESULT urldown; 
+ urldown = URLDownloadToFile(NULL,"ftp://192.168.6.254/实验二  网络监听实
+验.doc","c:\\test.doc",0,NULL);//需要根据实际情况调整参数 
+ switch(urldown) 
+ { 
+ case E_OUTOFMEMORY: 
+  printf("下载失败！"); 
+  break; 
+ case S_OK: 
+  printf("下载成功！"); 
+  break; 
+ } 
+} 

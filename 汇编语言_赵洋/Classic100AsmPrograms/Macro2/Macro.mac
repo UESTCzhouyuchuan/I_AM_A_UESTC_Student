@@ -1,0 +1,23 @@
+;－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
+; by Loomman, QQ:28077188, MSN: Loomman@hotmail.com QQ裙：30515563
+; Macro.mac
+;－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
+;讲述宏的使用,本文件是宏库文件
+
+initz	macro
+	mov	ax, @data
+	mov	ds, ax
+	mov	es, ax
+endm
+
+prompt	macro	message
+	mov	ah, 09h
+	lea	dx, message
+	int	21h
+endm
+
+finish	macro
+	mov	ax, 4c00h
+	int	21h
+endm
+

@@ -1,0 +1,45 @@
+字符串常量又称为字符串字面量          字符串结束符'\0' 
+printf("put a disk,\
+press");
+printf("put a disk,\
+        press");
+printf("when you" 
+                      "xxxxxx");//回抬上去
+字符串‘’一个字节 printf（“abc");//传递‘abc’的地址 int printf("const char*format,");
+char *p;p='abc';把abc的地址赋给p ，不是复制字符串 *p='d';//wrong 
+‘abc’[0]='a';'abc'[2]=b;
+printf('\n');//wrong  'x'是一个数字，"x"是一个地址
+char str[STR_LEN+1],*p;
+p=str;//p=(char*)malloc(
+
+printf("%.ps",str);输出前p个字符；%ms右对齐
+int puts(const char*str); 
+3:stdin(键盘）stdout(屏幕） std (屏幕）
+
+scanf("%s",str);当调用scanf时，该函数会跳过空白，然后读入字符（直到遇到空白字符）并存入str所在空间
+新行符，空格，tab键，都会导致是scanf停止读入
+用gets();装到换行符或EOF为止 //与puts（）；
+fgtgets();char*fgets(char*str,int num,FILE* stream);
+
+#include<string.h>
+char *strcpy(char*s1,const char*s2);copy;
+{
+char*s=s1;
+while((*s1++=*s2++)!='\0');
+return s;}
+size_t strlen(const char*s);
+char*strcat(char*s1,const char*s2);注意str1要有足够的的储存空间；
+int strcmp(const char *s1,const char *s2);
+{
+for(;*s1==*s2;s1++,s2++)
+if(*s1==0)
+return 0;
+return ((unsigned*)s1>(unsigned*)s2 ? 1:-1);
+}
+空格的编码小于所有可打印字符的编码
+
+malloc 需要判断是否为null
+ free()用来删除指针
+指针可以大大减少空间复杂度和时间复杂度
+union struct enum;
+

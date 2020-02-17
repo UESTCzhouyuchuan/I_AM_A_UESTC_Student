@@ -1,0 +1,53 @@
+#name:usr_monitor
+#function:检测用户登陆
+#format:usr_monitor username
+#其中username是用户指定的用户名
+#程序运行时首先列出已经登陆的用户名单
+#再检验输入用户是否登陆
+#如果登陆显示登陆信息，否则等待直到指定用户登陆
+
+check_user() # 检查用户是否登陆的方式
+{
+	user=$(who | cut -d ' ' -f 1)
+	for name in $user
+	do
+		if [ $1 = $name ]
+		then
+			return 1
+		fi
+	done
+	return 0
+}
+
+if [ $# != 1 ]	# 如果参数不为1，输出提示信息，退出
+then
+	echo "Usage:usr_monitor username."
+	exit
+fi
+
+username=$(who | cut -d ' ' -f 1)  # 输出已经登陆的用户，从定向到文件里
+echo "已经登陆的用户为"
+echo $username	#输出到屏幕
+check_user $1	#检查用户是否登陆
+if [ $? -eq 1 ] #如果字符串长度不为0，说明参数在文件username里，
+	       	    #表明用户已经登陆
+then
+	echo "user [$1] is logon."
+	exit
+else
+	echo -ne "waiting user [$1]......"
+fi
+
+while true
+do
+	sleep 5
+	echo
+	check_user $1	#调用函数，检查用户是否登陆
+	if [ $? = 1 ]	#如果返回参数等于1，代表用户登陆,退出
+	then
+		echo -ne "[$1] is log on."
+		break
+	else
+		echo -ne "waiting user [$1]......"
+	fi
+done

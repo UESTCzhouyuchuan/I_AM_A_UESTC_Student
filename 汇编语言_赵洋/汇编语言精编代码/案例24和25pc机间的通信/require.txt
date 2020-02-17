@@ -1,0 +1,68 @@
+CODE   SEGMENT
+             ASSUME  CS: CODE
+START: 
+            ;初始化波特率除数寄存器
+             MOV DX , 3FBH        ;指向线路控制寄存器
+             MOV AL , 80H           ;位7置1
+            OUT DX , AL              ;发送此字节
+            MOV DX , 3F9H         ;指向波特率除数的最高有效位
+            MOV AL , 0                 ; 1200 BPS对应的最高有效位
+            OUT DX , AL              ;发送此字节
+            DEC DX                       ;指向波特率除数的最低有效位
+            MOV AL , 60H             ; 1200 BPS对应的最低有效位
+            OUT DX , AL               ;发送此字节
+            ;初始化线路控制寄存器: 
+            MOV AL , 1BH            ;数据长度为8位 , 1个奇偶校验位 , 偶校验 , 1个停止位
+            MOV DX , 3FBH         ;指向线路控制寄存器
+            OUT DX , AL               ;发送此字节
+            ;初始化中断允许寄存器
+            MOV DX ,  3F9H         ;指向中断允许寄存器
+            MOV AL ,  0                 ;禁止所有中断
+            OUT DX , AL               ;发送字节
+READ:      ;线路状态检测循环
+             MOV DX , 3FDH        ;指向线路状态寄存器
+             IN AL , DX                  ;取状态字节
+             TEST AL , 1EH           ;检查错误
+             JNZ ERROR                ;若出错则转错误处理例程
+             TEST AL , 01H            ;测试是否已收到数据
+              JNZ RECEIVE            ;转接收例程
+             TEST AL , 20H           ;测试是否可以发送字符
+              JNZ  SEND                 ;若是转发送例程
+              JMP READ                 ;循环检测
+SEND:       ;发送字符(来自键盘): 
+              MOV AH , 1               ;BIOS功能用以检测是否有字符可读
+              INT 16H                     ;BIOS键盘中断
+              JZ  READ                   ;若无击键则返回循环
+              MOV AH , 0               ;BIOS功能用于取击键码
+              INT 16H                     ;击键码现在AL中
+              CMP AL , 03H           ;检测CTRL+C
+               JZ EXIT                     ;若是 , 转EXIT处结束程序
+              MOV DX , 3F8H        ;指向发送保持寄存器
+              OUT DX , AL             ;发送字符
+               JMP  READ               ;返回循环
+RECEIVE:        ;接收数据(在屏幕上显示): 
+               MOV DX , 3F8H       ;接收数据寄存器
+               IN  AL , DX               ;取新收到的字符
+               CMP AL , 03H           ;检测CTRL+C
+               JZ  EXIT                     ;若是 , 转EXIT处结束程序
+               MOV DL , AL            ;准备显示字符
+               MOV AH , 2               ;用于显示字符的DOS中断
+               INT 21H                     ;显示字符
+               CMP AL , 0DH          ;判断刚才收到的字符是否为回车
+               JNZ READ                 ;不是，转线路检测循环
+               MOV DL , 0AH         ;若是，则加显示一个换行符
+               MOV AH , 2
+               INT 21H
+               JMP READ                ;返回线路检测循环
+ ERROR:           ;出错处理，显示一个提示
+                PUSH CS
+                POP DS
+                MOV DX , OFFSET ERROR_MESSAGE
+                MOV AH , 9
+                INT 21H         
+EXIT:                ;程序退出
+                MOV AH , 4CH
+               INT 21H
+ ERROR_MESSAGE DB 0AH , 'ERROR!$'         ;定义出错时显示的提示
+CODE    ENDS
+               END   START

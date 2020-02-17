@@ -1,0 +1,20 @@
+Router>enable 
+Router#configure terminal 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#interface serial 2/0
+Router(config-if)#ip address 192.168.1.1 255.255.255.0
+Router(config-if)#no shutdown 
+Router(config-if)#exit
+Router(config)#interface serial 3/0
+Router(config-if)#ip address 192.168.2.1 255.255.255.0
+Router(config-if)#no shutdown 
+Router(config-if)#exit
+Router(config)#interface fastEthernet 0/0
+Router(config-if)#ip address 192.168.4.254 255.255.255.0
+Router(config-if)#no shutdown
+Router(config-if)#exit
+Router(config)#
+Router(config)#ip route 192.168.5.0 255.255.255.0 192.168.2.2
+Router(config)#ip route 192.168.6.0 255.255.255.0 192.168.1.2
+Router(config)#exit
+Router#

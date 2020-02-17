@@ -1,0 +1,163 @@
+周玉川-2017221302006
+
+line 01: 井号    #
+line 01: 保留字  include
+line 01: 双引号  "
+line 01 标识符  stdio
+line 01: 点       .
+line 01 标识符  h
+line 01: 双引号  "
+line 01: 行尾符  
+
+line 02: 保留字  int
+line 02 标识符  fun
+line 02: 左括号  (
+line 02: 保留字  int
+line 02 标识符  year
+line 02: 右括号  )
+line 02: 左大括号 {
+line 02: 行尾符  
+
+line 03: 保留字  if
+line 03: 左括号  (
+line 03: 左括号  (
+line 03 标识符  year
+line 03: 运算符  %
+line 03: CONSTANT 4
+line 03: 运算符  ==
+line 03: CONSTANT 0
+line 03: 运算符  &&
+line 03 标识符  year
+line 03: 运算符  %
+line 03: CONSTANT 100
+line 03: 运算符  !=
+line 03: CONSTANT 0
+line 03: 右括号  )
+line 03: 运算符  ||
+line 03 标识符  year
+line 03: 运算符  %
+line 03: CONSTANT 400
+line 03: 运算符  ==
+line 03: CONSTANT 0
+line 03: 右括号  )
+line 03: 保留字  return
+line 03: CONSTANT 1
+line 03: 分号    ;
+line 03: 行尾符  
+
+line 04: 保留字  return
+line 04: CONSTANT 0
+line 04: 分号    ;
+line 04: 行尾符  
+
+line 05: 右大括号 }
+line 05: 行尾符  
+
+line 06: 行尾符  
+
+line 07: 保留字  int
+line 07: 保留字  main
+line 07: 左括号  (
+line 07: 右括号  )
+line 07: 行尾符  
+
+line 08: 左大括号 {
+line 08: 行尾符  
+
+line 09: 保留字  int
+line 09 标识符  i
+line 09: 逗号    ,
+line 09 标识符  sum
+line 09: 等号    =
+line 09: CONSTANT 0
+line 09: 分号    ;
+line 09: 行尾符  
+
+line 10: 保留字  for
+line 10: 左括号  (
+line 10 标识符  i
+line 10: 等号    =
+line 10: CONSTANT 2001
+line 10: 分号    ;
+line 10 标识符  i
+line 10: 运算符  <=
+line 10: CONSTANT 2999
+line 10: 分号    ;
+line 10 标识符  i
+line 10: 运算符  +
+line 10: 运算符  +
+line 10: 右括号  )
+line 10: 行尾符  
+
+line 11: 保留字  if
+line 11: 左括号  (
+line 11 标识符  fun
+line 11: 左括号  (
+line 11 标识符  i
+line 11: 右括号  )
+line 11: 右括号  )
+line 11: 左大括号 {
+line 11: 行尾符  
+
+line 12: 保留字  printf
+line 12: 左括号  (
+line 12: 双引号  "
+line 12: 运算符  %
+line 12 标识符  d
+line 12 标识符  leap
+line 12: 等号    =
+line 12: CONSTANT 1
+line 12: 行尾符  \n
+line 12: 双引号  "
+line 12: 逗号    ,
+line 12 标识符  i
+line 12: 右括号  )
+line 12: 分号    ;
+line 12: 行尾符  
+
+line 13 标识符  sum
+line 13: 运算符  +
+line 13: 运算符  +
+line 13: 分号    ;
+line 13: 行尾符  
+
+line 14: 右大括号 }
+line 14: 行尾符  
+
+line 15: 保留字  else
+line 15: 保留字  printf
+line 15: 左括号  (
+line 15: 双引号  "
+line 15: 运算符  %
+line 15 标识符  d
+line 15 标识符  leap
+line 15: 等号    =
+line 15: CONSTANT 0
+line 15: 行尾符  \n
+line 15: 双引号  "
+line 15: 逗号    ,
+line 15 标识符  i
+line 15: 右括号  )
+line 15: 分号    ;
+line 15: 行尾符  
+
+line 16: 保留字  printf
+line 16: 左括号  (
+line 16: 双引号  "
+line 16 标识符  There
+line 16 标识符  are
+line 16: 运算符  %
+line 16 标识符  d
+line 16 标识符  leapyears
+line 16: 运算符  !
+line 16: 运算符  !
+line 16: 行尾符  \n
+line 16: 双引号  "
+line 16: 逗号    ,
+line 16 标识符  sum
+line 16: 右括号  )
+line 16: 分号    ;
+line 16: 行尾符  
+
+line 17: 右大括号 }
+line 17: 结尾符  #

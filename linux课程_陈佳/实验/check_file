@@ -1,0 +1,43 @@
+#name:check_file
+#功能：动态检测文件大小，若改变超过两次或者十次未改变，退出程序
+#每5秒检测一次
+
+clear	#清屏
+echo -ne "Input file name: "	#提示输入文件名
+read filename			#读入文件名
+if [ -e $filename ]	#若文件存在，进一步操作
+then
+	echo "Current statue of [$filename] is:"	#提示
+	ls -l $filename	#以长格式打印文件信息
+	change_count=0	#初始文件改变次数为0
+	stay_count=0	#初始文件连续未改变次数为0
+	while true	#死循环，人为控制终止
+	do
+		size_before=$(ls -l $filename|cut -d " " -f 5)	#截取文件信息得到大小
+		echo -ne "test file's statue....\n\n" #提示
+		sleep 5	#程序休眠5秒钟
+		size_after=$(ls -l $filename|cut -d " " -f 5)	#得到5秒钟后文件大小
+		if [ $size_before != $size_after ]	#如果前后大小不一样
+		then
+			let change_count=change_count+1	#改变次数加一
+			stay_count=0			#连续保持数为重置为0
+			echo "file [$filename] size changed"	#提示文件大小已经改变
+			if [ $change_count == 2 ]	#如果改变次数为2，提示并退出
+			then
+				echo "Change number exceed two,test end"
+				exit
+			fi
+		else					#若前后大小一样，连续保持数加一
+			let stay_count+=1
+			if [ $stay_count == 10 ]	#若连续保持不变的次数等于10，提示并退出
+			then
+				echo "test number exceed ten!"
+				exit
+			fi
+		fi
+done
+else			#若文件不存在，输出提示信息并退出
+	echo "Can't find the file [$filename]"
+	exit
+fi
+

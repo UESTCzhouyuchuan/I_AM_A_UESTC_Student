@@ -1,0 +1,12 @@
+函数原型：
+int find_largest(int a[],int n);  a是二维数组
+
+
+调用
+largest=find_largest(a,NUM_ROWS*NUM_COLS);wrong
+
+find_largest(&a[0][0],NUM_ROWS*NUM_COLS);right
+find_largest(a[0],NUM_ROWS*NUM_COLS);right
+
+每调用一个函数机器会分配给它一个栈正，若栈不够就会stack_overflow
+

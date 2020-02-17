@@ -1,0 +1,32 @@
+#pragma comment(lib, "ws2_32.lib") 
+#include <winsock2.h> 
+#include <stdio.h> 
+int main() 
+{ 
+     SOCKET mysock,tsock;   //           定义套接字 
+     struct sockaddr_in my_addr;   // 本地地址信息 
+     struct sockaddr_in their_addr;  // 连接者地址信息 
+     int sin_size; 
+     WSADATA wsa; 
+     WSAStartup(MAKEWORD(2,2),&wsa);         //初始化  Windows Socket 
+     //建立 socket 
+     mysock = socket(AF_INET, SOCK_STREAM, 0); 
+     //bind 本机的端口 
+     my_addr.sin_family = AF_INET;   //         协议类型是      INET 
+     my_addr.sin_port = htons(1234);      // 绑定端口    1234 
+     my_addr.sin_addr.s_addr = INADDR_ANY;  // 本机 IP 
+     bind(mysock, (struct sockaddr *)&my_addr, sizeof(struct sockaddr)); 
+      //listen，监听端口 
+     listen(mysock, 10); // 等待连接数目 
+     printf("listen......"); 
+     //等待客户端连接 
+     sin_size = sizeof(struct sockaddr_in); 
+     tsock = accept(mysock, (struct sockaddr *)&their_addr, &sin_size); 
+     //有连接就发送     Hello!字符串过去 
+     send(tsock, "Hello!\n", sizeof("Hello!\n"), 0); 
+     printf("send ok!\n"); 
+      //成功，关闭套接字 
+     closesocket(mysock); 
+     closesocket(tsock); 
+     return 0; 
+} 
